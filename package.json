@@ -61,7 +61,7 @@
     "components-font-awesome": "^4.6.3",
     "immutable": "^3.8.2",
     "jquery": "^3.4.1",
-    "moment": "^2.10.6",
+    "moment": "^2.19.3",
     "zenscroll": "^4.0.2"
   }
 }
