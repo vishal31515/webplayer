@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
+    <title>Papereed Audio</title>
+    <meta name="description" content="Lyssna på de bästa artiklarna från en mängd olika tidningar!" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <style type="text/css">  
+      .grid-new {display:none;}
+     /* .grid-loader { width:20px;
+        height: 10px;
+        position: fixed;
+        top: 50%;
+        left: 50%;}*/
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48985389-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      //Web Player Tracker
+      gtag('config', 'UA-48985389-6', {
+        custom_map: { dimension1: 'usr' },
+      });
+    </script>
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- FACEBOOK TAGS -->
+    <meta property="fb:app_id" content="1570348433273888" />
+    <!--meta property="og:url" content="https://www.papereed.com/player" /-->
+    <meta property="og:site_name" content="Papereed" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_se" />
+    <meta property="og:title" content="Lyssna på tidningsartiklar" />
+    <meta property="og:description" content="Ingen tid för att läsa tidningar? Prova att lyssna på intressanta artiklar istället. Vi samlar de bästa svenska artiklarna på ett och samma ställe och låter dig lyssna på dem. När du vill. Var du vill." />
+    <meta property="og:image" content="https://www.papereed.com/images/logga200x200.png" />
+    <!-- FACEBOOK TAGS -->
+
+    <!-- LINKEDIN TAGS -->
+    <meta property="og:image" content="https://www.papereed.com/images/image-linkedin.png" />
+    <meta property="og:image:width" content="180" />
+    <meta property="og:image:height" content="110" />
+    <!-- LINKEDIN TAGS -->
+
+    <!-- TWITTER TAGS -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!--meta name="twitter:site" content="@nytimes">
+    <meta name="twitter:creator" content="@SarahMaslinNir"-->
+    <meta name="twitter:title" content="Papereed" />
+    <meta name="twitter:description" content="Lyssna på de bästa artiklarna från en mängd olika tidningar." />
+    <meta name="twitter:image" content="https://www.papereed.com/images/image-twitter.png" />
+    <!-- TWITTER TAGS -->
+
+    <!-- BRANCH.IO JOURNEY BANNER we use bransch for dynamic link to the app -->
+    <script type="text/javascript">
+      (function(b, r, a, n, c, h, _, s, d, k) {
+        if (!b[n] || !b[n]._q) {
+          for (; s < _.length; ) c(h, _[s++]);
+          d = r.createElement(a);
+          d.async = 1;
+          d.src = 'https://cdn.branch.io/branch-latest.min.js';
+          k = r.getElementsByTagName(a)[0];
+          k.parentNode.insertBefore(d, k);
+          b[n] = h;
+        }
+      })(
+        window,
+        document,
+        'script',
+        'branch',
+        function(b, r) {
+          b[r] = function() {
+            b._q.push([r, arguments]);
+          };
+        },
+        { _q: [], _v: 1 },
+        'addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode'.split(' '),
+        0
+      );
+
+      branch.init('key_live_mkqPnzHbS618tsh4QZUFnlfgFAegvJU0', null, function(err, data) {});
+    </script>
+    <!-- BRANCH.IO JOURNEY BANNER -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,400,300" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,200" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '1570348433273888',
+          xfbml: true,
+          version: 'v2.7',
+        });
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = '//connect.facebook.net/en_US/sdk.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'facebook-jssdk');
+    </script>
+
+    <!--[if lt IE 10]>
+      <p class="unsupported">Du använder en <strong>gammal</strong> browser som inte stödjer den här sidan. <a href="http://browsehappy.com/">Uppgradera din webläsare</a>, gärna till Chrome.</p>
+    <![endif]-->
+
+    <div id="preload-01"></div>
+
+    <div class="mynavbar">
+      <div class="mnb-menu">
+        <div class="mnb-item mnb-item-link" id="playlistButton"></div>
+        <div class="mnb-item mnb-item-link">
+          <div class="mnb-sort-group">
+            <span class="mnb-label" id="sortButton"></span>
+            <div id="sortMenu" class="btn-group">
+              <button class="btn-l-label" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="r-label  mnb-item-link"></span> <span class="caret"></span></button>
+
+              <ul class="dropdown-menu">
+                <li><a id="titleSortItem" href="#"></a></li>
+                <li><a id="popularitySortItem" href="#"></a></li>
+                <li><a id="durationSortItem" href="#"></a></li>
+                <li><a id="latestSortItem" href="#"></a></li>
+                <!--li><button class="btn btn-default swap-sort" id="swapSortOrder"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button></li-->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mnb-item mnb-item-link" id="filterButton"></div>
+
+        <div class="mnb-item mnb-item-link">
+        <div class="mnb-sort-group">
+          <span class="mnb-label" id="moreButton"></span>
+          <div id="moreMenu" class="btn-group">
+            <button class="btn-l-label" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="moreText" class="r-label mnb-item-link"></span></button>
+
+            <ul class="dropdown-menu">
+              <li><a id="loginItem" href="#">
+                  <div id="login" class="mnb-item-link show-when-logged-out login-text" onclick="LoginController.login('first')"></div>
+                  <div id="logout" class="mnb-item-link show-when-logged-in" style="display: none"><span class="logout-text" onclick="LoginController.logout()"></span></div>
+                </a>
+                </li>
+                <li id="appLangText" disabled class="dropdown-separator-text"></li>
+                <li disabled class="dropdown-separator"></li>
+              <li><a id="enItemText" href="#" onclick="Listener.setLanguage('en')"></a></li>
+              <li><a id="svItemText" href="#" onclick="Listener.setLanguage('sv')"></a></li>
+              <!--li><button class="btn btn-default swap-sort" id="swapSortOrder"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button></li-->
+            </ul>
+          </div>
+        </div>
+        </div>
+        <div class="mnb-item">
+          <div class="top-menu">
+            <!--div class="login-menu">
+              <div id="login" class="mnb-item-link show-when-logged-out login-text" onclick="LoginController.login('first')"></div>
+              <div id="logout" class="mnb-item-link show-when-logged-in" style="display: none"><span class="logout-text" onclick="LoginController.logout()"></span></div>
+          </div-->
+          </div>
+        </div>
+      </div>
+
+      <div class="single-magazine-mode">
+        <div class="mnb-item mnb-left mnb-title">
+          <span class="mnb-title-from">&nbsp;<span id="contentFromText"></span></span>
+          <span class="mnb-title-mag"></span>
+        </div>
+      </div>
+
+      <div class="standard-mode">
+        <div class="mnb-item mnb-left mnb-title">
+          <div class="papereed-logo"></div>
+        </div>
+      </div>
+
+      <div class="navbar-pagination">
+        <!-- <span class="glyphicon glyphicon-menu-left paginationPrevious" aria-hidden="true"></span> -->
+        <!-- <span class="glyphicon glyphicon-menu-right paginationNext" aria-hidden="true"></span> -->
+      </div>
+    </div>
+    <div class="grid">
+      <div id="grid" class="grid-new"></div>
+      <div class="white-banner" style="background: #fff; width: 100%; max-width: 1190px;
+    margin: auto; min-height: 291px; max-height: 291px; margin-top: -300px; position: relative; z-index: 99; margin-bottom: 56px; opacity: 0.8;"></div>
+<!--     <div class="dark-white-div">
+      <div class="dark_white_banner"></div>
+    </div> -->
+    </div>
+    <div class="loading-circle grid-loader" style="position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); display: none; z-index: 99;"></div>
+    <div id="load-indicator" class="loading-circle" style="position:absolute;display:none"></div>
+
+    <!-- FILTER MENU -->
+    <div id="menu-panel">
+      <div class="menu-content">
+        <div id="closeFilter"><span class="close-string"></span><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></div>
+        <div class="separator"></div>
+
+        <div class="magazine-filter-list standard-mode">
+          <div class="separator filter-separator"></div>
+          <div class="section-label magazine-string"></div>
+
+          <div id="magazine-filter" class="filter-group"></div>
+        </div>
+          
+        </div>
+
+        <div class="magazine-filter-info single-magazine-mode">
+          <div id="articlesFromAllText"></div>
+          <button id="showAllText" type="button" class="btn btn-primary btn-sm" onclick="Listener.showAllArticles()"></button>
+        </div>
+
+        <div class="separator filter-separator"></div>
+        <div class="section-label categories-string"></div>
+        <div id="category-filter" class="filter-group"></div>
+      </div>
+      <!--div id="touch-zone-1"></div>
+  <div class="menu-button"><div></div><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></div-->
+    </div>
+
+    <!--  PLAYLIST MENU    -->
+
+    <div id="playList">
+      <!--div class="playlist-button">
+    <div></div>
+    <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+    <div id="playlistButtonArea"></div>
+  </div-->
+      <div id="playlistArea">
+        <div class="closePlaylist close-playlist-handler"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="close-string"></span></div>
+        <div>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a id="selectedList" href="#thislist" aria-controls="thislist" role="tab" data-toggle="tab"></a>
+            </li>
+
+            <li role="presentation">
+              <a id="archive" href="#savedlist" aria-controls="savedlist" role="tab" data-toggle="tab"></a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <!-- TAB 1 ***************************** -->
+            <div role="tabpanel" class="tab-pane active" id="thislist">
+              <div id="infoPart">
+                <div id="newListLength" class="playlist-length"><span class="duration-text"></span><span>&nbsp;</span></div>
+                <button id="playlistSaveButton" type="button" class="btn btn-default btn-lg std-btn"></button>
+                <button id="playlistPlayButton" type="button" class="btn btn-default btn-lg std-btn"></button>
+              </div>
+
+              <div id="playlistSaveForm">
+                <div class="form-group">
+                  <label id="newPlaylistNameString" for="newPlaylistName"></label>
+                  <input type="text" class="form-control" id="newPlaylistName"/>
+                </div>
+                <button class="btn btn-primary btn-lg form-button std-btn disabled" id="playlistOkButton">&nbsp;&nbsp;ok&nbsp;&nbsp;&nbsp;</button>
+                <button id="playlistCancelButton" class="btn btn-default btn-lg form-button std-btn cancel-text"></button>
+              </div>
+              <ul id="slippylist" class="slippylist"></ul>
+
+              <div id="noContentInfo" class="playlist-infotext">
+                <p id="noArticlesInPlaylist"></p>
+                <p id="playlistPitch"></p>
+                <p id="playlistLoginInfo" class="show-when-logged-out"></p>
+                <button type="button" class="btn btn-primary btn-sm close-playlist-handler show-when-logged-out login-here-text" onclick="LoginController.login('first')"></button>
+              </div>
+            </div>
+
+            <!-- TAB 2 ***************************** -->
+            <div role="tabpanel" class="tab-pane" id="savedlist">
+              <div class="details">
+                <ul id="myLists"></ul>
+                <ul id="tab2DraggableArticleList" class="slippylist"></ul>
+              </div>
+
+              <div id="emptyArchiveInfo" class="playlist-infotext">
+                <p id="emptyArchive"></p>
+                <p id="saveListText"></p>
+              </div>
+              <div class="app-version">version 1.4 - 20190720</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  END PLAYLIST MENU    -->
+
+    <div id="articleLoader" style="text-align:center;margin:50px auto">
+      <p id="articleLoaderText"></p>
+      <div class="loading-circle" style="background-color:transparent"></div>
+    </div>
+
+    <div id="loadingError" style="text-align:center;margin:50px auto;display:none">
+      <p id="loadingErrorText"></p>
+      <p id="tryReloadText"></p>
+    </div>
+<!--     <div class="white-banner1" style="background: #fff; width: 100%; max-width: 1190px;
+    margin: auto; min-height: 291px; max-height: 291px; margin-top: -300px; position: relative; z-index: 99; margin-bottom: 56px; opacity: 0.8; display: block;"></div> -->
+    <div style="display:block">
+      <div id="singleModeButtons" class="mode-buttons text-center standard-mode">
+        <p id="moreArticlesFromMag" class="single-mode-only" onclick="Listener.showMoreArticles()"></p>
+        <p class="filtered-mode" id="resetFilterButton"></p>
+      </div>
+
+      <div id="pager" class="multi-mode-only" style="visibility:hidden"></div>
+      <!--p class="text-center top-nav"><a href="#">till toppen</a></p-->
+      <!--p class="text-center top-nav"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></p-->
+
+      <nav>
+        <div class="text-center">
+          <div class="pagination multi-mode-only readmore-btn">
+            <!-- <span class="glyphicon glyphicon-menu-left paginationPrevious" aria-hidden="true"></span> -->
+            <!-- <span class="pageNumber" id="pageNumber"></span> -->
+            <button class="paginationNext more-article" id="load_next_articles">More Articles</button>
+            <!-- <button class="paginationPrevious" id="abc">Less Articles</button> -->
+            <!-- <span class="glyphicon glyphicon-menu-right paginationNext" aria-hidden="true"></span> -->
+            <span id="lastPageNumber"></span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- <div class="footer">
+        <p>&#169; Papereed AB 2019</p>
+        <p><a class="fa fa-facebook social-button" href="https://www.facebook.com/papereed/"></a></p>
+        <p><a id="aboutPapereed" href="https://www.papereed.com/#/about"></a></p>
+      </div> -->
+
+      <!--  PLAYBAR MENU    -->
+
+      <div id="play-panel" class="pristine">
+        <div class="play-panel-content">
+          <div id="closePlaybar"><span class="glyphicon glyphicon-chevron-up closed" aria-hidden="true"></span><span class="glyphicon glyphicon-chevron-down opened" aria-hidden="true"></span></div>
+
+          <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+          <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+            <div class="jp-type-playlist">
+              <div class="jp-gui jp-interface">
+                <div class="jp-controls">
+                  <button class="jp-previous" role="button" tabindex="0">previous</button>
+                  <button class="jp-play" role="button" tabindex="0">play</button>
+                  <button class="jp-stop" role="button" tabindex="0">stop</button>
+                  <button class="jp-next" role="button" tabindex="0">next</button>
+                </div>
+
+                <div class="jp-time-holder">
+                  <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                  <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                </div>
+
+                <div class="jp-progress">
+                  <div class="jp-seek-bar">
+                    <div class="jp-play-bar"></div>
+                  </div>
+                </div>
+
+                <div id="currentArticleTitle"></div>
+
+                <div class="jp-volume-controls">
+                  <button class="jp-mute" role="button" tabindex="0">mute</button>
+                  <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                  <div class="jp-volume-bar">
+                    <div class="jp-volume-bar-value"></div>
+                  </div>
+                </div>
+              </div>
+              <div id="jp-playlist" class="jp-playlist">
+                <ul>
+                  <li>&nbsp;</li>
+                </ul>
+              </div>
+              <div class="jp-no-solution">
+                <span>Update Required</span>
+                To play the media you will need to either update your browser to a recent version.
+              </div>
+            </div>
+          </div>
+          <!--div id="showPlaylist" data-visible="false">VISA SPELLISTA</div-->
+        </div>
+      </div>
+
+      <div id="playbarButton" class="circle-button">
+        <div></div>
+        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+      </div>
+
+      <div id="alert" class="fade"></div>
+
+      <!--div id="appAlert"><span class="app-alert-1">Har du en iPhone?</span><span class="app-alert-3">&#x2715;</span><span class="app-alert-2">Visa inte igen</span>
+    <div class="app-alert-1dd">Testa gärna vår app.</div>
+  </div-->
+
+      <!--  INFO MODAL    -->
+      <div class="modal fade" id="infoModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 id="info-header" class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div id="info-body"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary pull-left close-string" data-dismiss="modal"></button>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <!--  SHARE DIALOG    -->
+      <div class="modal fade" id="shareModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body" style="padding:20px 30px;">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <div id="shareArticleText" class="share-dialog-header"></div>
+              <div id="shareableLinkText" class="share-dialog-link-label"></div>
+              <input type="text" class="form-control" id="shareModal-link" readonly />
+
+              <div class="fb-button jssocials-shares">
+                <div class="jssocials-share jssocials-share-facebook">
+                  <a href="#" onclick="Listener.shareOnFB()" class="jssocials-share-link jssocials-share-no-count">
+                    <i class="fa fa-facebook jssocials-share-logo"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div id="share"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary pull-left close-string" data-dismiss="modal"></button>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <!--  LOGIN DIALOG    -->
+      <div class="modal fade" id="loginModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- Nav tabs -->
+            <ul id="loginTablist" class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#login2" class="login-text" aria-controls="login2" role="tab" data-toggle="tab"></a></li>
+              <li role="presentation"><a href="#signup" class="register-text" aria-controls="signup" role="tab" data-toggle="tab"></a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="login2">
+                <!-- THE LOGIN TAB -->
+                <div class="modal-body login-form" style="padding:40px 50px;">
+                  <div id="badCredentials"></div>
+                  <form role="form" name="loginForm">
+                    <div class="form-group">
+                      <label for="usrname"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<span id="username-text"></span></label>
+                      <input type="email" required class="form-control" id="usrname"/>
+                    </div>
+                    <div class="form-group">
+                      <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;<span class="password-text"></span></label>
+                      <input type="password" required class="form-control" id="psw" ng-model="user.pw" />
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" id="rememberUser"/><span id="rememberUserText"></span></label>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" onclick="LoginController.loginSubmit()" class="btn btn-success login-submit" disabled><span class="glyphicon glyphicon-off"></span> <span class="login-text"></span></button>
+                  <button type="button" class="btn btn-default cancel-text" data-dismiss="modal"></button>
+                  <p class=" forgotpw pull-right"><a href="https://www.papereed.com/#!/forgotpw" id="forgotPwText" target="_blank"></a></p>
+                </div>
+            </div>
+
+              <!-- THE REGISTRATION TAB -->
+              <div role="tabpanel" class="tab-pane" id="signup">
+                <div class="scroller">
+                  <div class="signup-view-a">
+                    <div class="modal-body" style="padding:10px 50px;">
+                      <p id="registrationTitleText"></p>
+                      <p id="registrationBodyText1"></p>
+                      <p id="registrationBodyText2"></p>
+                      <div class="scroll-button" onclick="LoginController.move()"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> &nbsp;&nbsp;&nbsp;<span class="register-text"></span></div>
+
+                      <!--div class="block-registration">VI ÖPPNAR SNART FÖR NYA LYSSNARE</div-->
+                    </div>
+                  </div>
+
+                  <div class="signup-view-b">
+                    <div class="modal-body registration" style="padding:10px 50px;">
+                      <div style="text-align:center;">
+                        <p class="scroll-button-up" onclick="LoginController.move()"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></p>
+                      </div>
+                      <form novalidate id="registrationForm" name="registrationForm">
+                        <div class="firstname-field">
+                          <label id="firstNameText" for="firstName"></label>
+                          <input type="text" required class="form-control" name="firstName" />
+                        </div>
+
+                        <div class="last email-field">
+                          <label id="lastNameText" for="lastName"></label>
+                          <input type="text" required class="form-control" name="lastName" />
+                        </div>
+
+                        <div class="email-field">
+                          <label for="email" class="email-text"></label>
+                          <input type="email" required class="form-control" name="email" />
+                        </div>
+
+                        <div class="password-field">
+                          <label for="reg-pw" class="password-text"></label>
+                          <input type="password" id="signupPwPlaceholder" required class="form-control" name="reg-pw" />
+                        </div>
+
+                        <div class="last password-field">
+                          <label for="reg-pw-repeat" id="pwRepeatText"></label>
+                          <input type="password" required class="form-control" name="reg-pw-repeat" />
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="modal-footer">
+                      <div class="footer-buttons">
+                        <button type="button" onclick="LoginController.registerUser()" class="btn btn-success submit register-text" disabled></button>
+                        <button type="button" class="btn btn-default cancel-text" data-dismiss="modal"></button>
+                      </div>
+                      <div class="p-policy"><span id="policyText"></span> <a href="https://www.papereed.com/#!/privacypolicy" target="_blank">Privacy Policy</a></div>
+                    </div>
+                  </div>
+                </div>
+                <!--end class scroller-->
+
+                <div class="result-view">
+                  <div class="modal-body" style="padding:10px 50px;">
+                    <div class="reg-ok" style="display:none">
+                      <p id="signupCompletedText" class="result-title"></p>
+                      <p id="signupCompletedInfo"></p>
+                    </div>
+                    <div class="user-exists" style="display:none">
+                      <p id="signupFailure" class="result-title"></p>
+                      <p id="signupFailureInfo" ></p>
+                    </div>
+                    <button id="toLoginText" type="button" onclick="$('#loginTablist a:first').tab('show'); $('#loginModal .result-view').hide()" class="btn btn-success"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    </div>
+
+    <!-- bundle -->
+    <!-- <script>window.noZensmooth = true</script> -->
+    <!-- <script src="zenscroll-min.js"></script> -->
+  </body>
+</html>
