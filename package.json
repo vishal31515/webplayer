@@ -60,7 +60,7 @@
     "bootstrap": "^3.3.7",
     "components-font-awesome": "^4.6.3",
     "immutable": "^3.8.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.10.6",
     "zenscroll": "^4.0.2"
   }
